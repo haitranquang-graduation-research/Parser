@@ -1,0 +1,7 @@
+version: "3.0"
+services:
+  parser:
+    image: haitranquangofficial/graduation:parser
+    restart: always
+    ports:
+      - 5000:5000
