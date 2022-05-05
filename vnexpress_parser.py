@@ -26,6 +26,7 @@ def news(response):
     news['author'] = author(response)
     news['title'] = title(response)
     news['content'] = content(response)
+    news['topic'] = str(topic(response))
     return news
 
 def title(response):
@@ -42,8 +43,16 @@ def content(response):
 
 def author(response):
     pq = PyQuery(response)
-    author = pq('article > .Normal > strong')
-    return author.text()
+    author = [auth.text() for auth in pq('article > .Normal > strong').items()]
+    if (len(author) > 0):
+        author = author[len(author) - 1]
+    return author
+
+def topic(response):
+    pq = PyQuery(response)
+    topic = [top.text() for top in pq('.breadcrumb > li > a').items()]
+    
+    return topic
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 5000)
