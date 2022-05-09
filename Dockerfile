@@ -9,5 +9,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD [ "python3", "vnexpress_parser.py"]
+CMD [ "python3", "app\parser\app.py"]
 
