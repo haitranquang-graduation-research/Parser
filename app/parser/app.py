@@ -16,7 +16,7 @@ def parse():
     res = r.text
     ans = news(res, data['url'])
     ans['url'] = data['url']
-    # r1 = requests.post('http://167.71.205.25:1092/api/save', json=ans)
+    r1 = requests.post('http://167.71.205.25:1092/api/save', json=ans)
     # print(r1.json)
     return ans
 

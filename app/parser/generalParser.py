@@ -7,7 +7,6 @@ from specific.dantri import news as dantri_news
 from specific.baomoi import news as baomoi_news
 def news(response, url):
     if "vnexpress" in url:
-        print('vnexpress')
         return vnexpress_news(response)
     if "dantri" in url:
         return dantri_news(response)
