@@ -11,12 +11,13 @@ print('Hello')
 @app.route('/parser', methods = ['POST'])
 def parse():
     data = request.json
-    print(data['url'])
+    # print(data['url'])
     r = requests.get(data['url'])
     res = r.text
     ans = news(res, data['url'])
     ans['url'] = data['url']
-    r1 = requests.post('http://167.71.205.25:1092/api/save', json=ans)
+    # print(ans['url'])
+    r1 = requests.post('http://159.89.203.89:1092/api/save', json=ans)
     # print(r1.json)
     return ans
 

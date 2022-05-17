@@ -43,6 +43,5 @@ def topic(response):
 def picture_count(response):
     pq = PyQuery(response)
     pictures = [picture for picture in pq('.pCaption').items()]
-    print(pictures)
 
     return len(pictures)
