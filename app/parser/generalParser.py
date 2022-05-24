@@ -6,8 +6,11 @@ from specific.vnexpress import news as vnexpress_news
 from specific.dantri import news as dantri_news
 from specific.baomoi import news as baomoi_news
 from specific.vov import news as vov_news
+from specific.tuoitre import news as tuoitre_news
 from specific.zingnews import news as zing_news
 def news(response, url):
+    if "tuoitre" in url:
+        return tuoitre_news(response)
     if "vnexpress" in url:
         return vnexpress_news(response)
     if "dantri" in url:
