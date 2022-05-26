@@ -9,7 +9,13 @@ from specific.vov import news as vov_news
 from specific.tuoitre import news as tuoitre_news
 from specific.zingnews import news as zing_news
 from specific.vietnamnet import news as vietnamnet_news
+from specific.baophapluat import news as baophapluat_news
+from specific.nld import news as nld_news
 def news(response, url):
+    if "nld" in url:
+        return nld_news(response)
+    if "baophapluat" in url:
+        return baophapluat_news(response)
     if "vietnamnet" in url:
         return vietnamnet_news(response)
     if "tuoitre" in url:
