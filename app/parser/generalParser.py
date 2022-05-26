@@ -11,7 +11,13 @@ from specific.zingnews import news as zing_news
 from specific.vietnamnet import news as vietnamnet_news
 from specific.baophapluat import news as baophapluat_news
 from specific.nld import news as nld_news
+from specific.soha import news as soha_news
+from specific.tienphong import news as tienphong_news
 def news(response, url):
+    if "tienphong" in url:
+        return tienphong_news(response)
+    if "soha" in url:
+        return soha_news(response)
     if "nld" in url:
         return nld_news(response)
     if "baophapluat" in url:
