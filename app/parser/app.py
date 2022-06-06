@@ -2,7 +2,7 @@ from flask import jsonify, request, Flask
 from flask_restful import Resource, Api
 import requests
 from pyquery import PyQuery
-from generalParser import news
+from general_parser import news
 
 app = Flask(__name__)
 api = Api(app)
@@ -17,10 +17,10 @@ def parse():
     ans = news(res, data['url'])
     ans['url'] = data['url']
     # print(ans['url'])
-    r1 = requests.post('http://159.89.203.89:1092/api/save', json=ans)
+    # r1 = requests.post('http://172.21.0.5:1092/api/save', json=ans)
     # print(r1.json)
     return ans
 
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 5000)
+    app.run(host = '0.0.0.0', port = 5090)

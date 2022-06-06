@@ -5,3 +5,8 @@ services:
     restart: always
     ports:
       - 5000:5000
+    networks:
+      - grnet
+networks:
+  grnet:
+    name: gr_network
