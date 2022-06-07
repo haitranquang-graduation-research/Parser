@@ -2,6 +2,7 @@ from flask import jsonify, request, Flask
 from flask_restful import Resource, Api
 import requests
 from pyquery import PyQuery
+import url_config
 from general_parser import news
 
 app = Flask(__name__)
@@ -17,8 +18,9 @@ def parse():
     ans = news(res, data['url'])
     ans['url'] = data['url']
     # print(ans['url'])
-    # r1 = requests.post('http://172.21.0.5:1092/api/save', json=ans)
+    r1 = requests.post(url_config.get_news_database_url() + 'api/save', json=ans)
     # print(r1.json)
+    print(ans)
     return ans
 
 

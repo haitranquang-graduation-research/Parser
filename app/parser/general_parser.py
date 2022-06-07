@@ -40,8 +40,11 @@ def author(response, elements):
 def topic(response, elements):
     pq = PyQuery(response)
     topic = [top.text() for top in pq(elements['topic']).items()]
-    topic = topic[0]
-    return topic
+    if (len(topic) > 0):
+        topic = topic[0]
+        return topic
+    else:
+        topic = ''
 
 def picture_count(response, elements):
     pq = PyQuery(response)

@@ -4,9 +4,9 @@ services:
     image: haitranquangofficial/graduation:parser
     restart: always
     ports:
-      - 5000:5000
-    networks:
-      - grnet
-networks:
-  grnet:
-    name: gr_network
+      - 5090:5090
+#     networks:
+#       - grnet
+# networks:
+#   grnet:
+#     name: gr_network

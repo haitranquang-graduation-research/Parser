@@ -12,7 +12,7 @@ def parse_path(elements):
     detail = {}
     for element in elements:
         detail[element['type'].lower()] = element['path']
-    print(detail)
+    # print(detail)
     return detail
 
 
