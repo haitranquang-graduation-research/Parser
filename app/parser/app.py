@@ -20,7 +20,7 @@ def parse():
     # print(ans['url'])
     r1 = requests.post(url_config.get_news_database_url() + 'api/save', json=ans)
     # print(r1.json)
-    print(ans)
+    # print(ans)
     return ans
 
 
