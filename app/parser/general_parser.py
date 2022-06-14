@@ -35,7 +35,8 @@ def author(response, elements):
     author = [auth.text() for auth in pq(elements['author']).items()]
     if (len(author) > 0):
         author = author[len(author) - 1]
-    return author
+        return author
+    return ''
 
 def topic(response, elements):
     pq = PyQuery(response)
