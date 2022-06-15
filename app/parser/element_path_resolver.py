@@ -9,9 +9,16 @@ print('Hello')
 
 
 def parse_path(elements):
-    detail = {}
+    detail = {
+        "title":[],
+        "author":[],
+        "picture_count":[],
+        "content":[],
+        "href":[],
+        "topic":[]
+    }
     for element in elements:
-        detail[element['type'].lower()] = element['path']
+        detail[element['type'].lower()].append(element['path'])
     # print(detail)
     return detail
 
