@@ -28,7 +28,7 @@ def title(response, elements):
         # print(title)
         # print(element)
         if (title.text() != None) and (len(title.text()) > 0):
-            break
+            return title.text()
     return title.text()
 
 def content(response, elements):
@@ -36,7 +36,7 @@ def content(response, elements):
     for element in elements['content']:
         content = pq(element)
         if (content.text() != None) and (len(content.text()) > 0):
-            break
+            return content.text()
     return content.text()
 
 def author(response, elements):
