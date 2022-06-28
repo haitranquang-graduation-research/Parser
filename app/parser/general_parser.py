@@ -29,7 +29,7 @@ def title(response, elements):
         # print(title)
         # print(element)
         if (title.text() != None) and (len(title.text()) > 0):
-            return title.text()
+            return correct_string(title.text())
     return correct_string(title.text())
 
 def content(response, elements):
@@ -37,7 +37,7 @@ def content(response, elements):
     for element in elements['content']:
         content = pq(element)
         if (content.text() != None) and (len(content.text()) > 0):
-            return content.text()
+            return correct_string(content.text())
     return correct_string(content.text())
 
 def author(response, elements):
