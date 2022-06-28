@@ -2,6 +2,7 @@ from flask import jsonify, request, Flask
 from flask_restful import Resource, Api
 import requests
 from pyquery import PyQuery
+from correct_string import correct_string
 import url_config
 import element_path_resolver
 def news(response, url):
@@ -29,7 +30,7 @@ def title(response, elements):
         # print(element)
         if (title.text() != None) and (len(title.text()) > 0):
             return title.text()
-    return title.text()
+    return correct_string(title.text())
 
 def content(response, elements):
     pq = PyQuery(response)
@@ -37,7 +38,7 @@ def content(response, elements):
         content = pq(element)
         if (content.text() != None) and (len(content.text()) > 0):
             return content.text()
-    return content.text()
+    return correct_string(content.text())
 
 def author(response, elements):
     pq = PyQuery(response)
@@ -45,7 +46,7 @@ def author(response, elements):
         author = [auth.text() for auth in pq(element).items()]
         if (len(author) > 0):
             author = author[len(author) - 1]
-            return author
+            return correct_string(author)
     return ''
 
 def topic(response, elements):
@@ -54,9 +55,9 @@ def topic(response, elements):
         topic = [top.text() for top in pq(element).items()]
         if (len(topic) > 0):
             topic = topic[0]
-            return topic
+            return correct_string(topic)
         else:
-            topic = ''
+            return ''
 
 def picture_count(response, elements):
     pq = PyQuery(response)
