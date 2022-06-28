@@ -3,3 +3,4 @@ flask_restful
 pyquery
 requests
 numpy
+ftfy
