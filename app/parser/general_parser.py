@@ -15,6 +15,7 @@ def news(response, url):
     site_detail = site_detail.json()
     # print(site_detail)
     elements = element_path_resolver.parse_site(site_detail)
+    news['source'] = site_detail['name']
     news['author'] = author(response, elements)
     news['title'] = title(response, elements)
     news['content'] = content(response, elements)
