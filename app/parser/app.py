@@ -15,10 +15,13 @@ def parse():
     # print(data['url'])
     r = requests.get(data['url'])
     res = r.text
-    ans = news(res, data['url'])
-    ans['url'] = data['url']
-    # print(ans['url'])
-    r1 = requests.post(url_config.get_news_database_url() + 'api/save', json=ans)
+    try:
+        ans = news(res, data['url'])
+        ans['url'] = data['url']
+        # print(ans['url'])
+        r1 = requests.post(url_config.get_news_database_url() + 'api/save', json=ans)
+    except:
+        print(ans['url'])
     # print(r1.json)
     # print(ans)
     return ans
